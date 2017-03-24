@@ -1,0 +1,64 @@
+<!-- include header -->
+<div ng-include="'view/headerShop.html'"></div>
+
+<div class="container">
+  <div class="choseDayHistory"  ng-controller="CustomerController">
+    <h2>Your Purchase History</h2>
+    <table>
+      <tr>
+        <th>STT</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Price</th>
+      </tr>
+      <tr ng-repeat="x in bills">
+          <td>{{x.stt}}</td>
+          <td>{{x.day}}</td>
+          <td>{{x.time}}</td>
+          <td>{{x.price}}</td>
+          <td ng-click="getBillDetails(x.id)"><a href="" data-toggle="modal" data-target="#myModal">Details</td>
+      </tr>
+    </table>
+
+    <!-- modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Your Purchase History</h4>
+          </div>
+          <div class="modal-body">
+            <table>
+              <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Size</th>
+                <th>Color</th>
+                <th>Quantity</th>
+              </tr>
+              <tr ng-repeat="x in billsDetails">
+                <td>{{x.product_id}}</td>
+                <td>{{x.fashion_name}}</td>
+                <td>{{x.product_price}}</td>
+                <td>{{x.size}}</td>
+                <td>{{x.color}}</td>
+                <td>{{x.quantity}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- end modal -->
+
+  </div>
+</div>
+
+<!-- include footer -->
+<div ng-include="'view/footerShop.html'"></div>

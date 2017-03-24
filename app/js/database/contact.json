@@ -1,0 +1,45 @@
+{
+  "connect": {
+    "title": "Connect with Me!",
+    "content": [
+      {
+        "icon": "images/facebook3.png",
+        "title": "Facebook",
+        "content": "facebook.com/hoang.hohuy.969",
+        "link": "https://www.facebook.com/hoang.hohuy.969"
+      },
+      {
+        "icon": "images/github.png",
+        "title": "Github",
+        "content": "at-hoanghh",
+        "link": "https://github.com/at-hoanghh"
+      },
+      {
+      "icon": "images/gmail3.png",
+      "title": "Email",
+      "content": "hoangtnth@gmail.com",
+      "link":"https://plus.google.com/103171018582005501238"
+    }
+    ]
+  },
+  "contact": {
+    "title": "Contact Me!",
+    "content": [
+      {
+        "icon": "images/phone.png",
+        "title": "Phone",
+        "content": "+84.982.000.357"
+      },
+      {
+        "icon": "images/heart.png",
+        "title": "I'm single",
+        "content": "I love You"
+      },
+      {
+        "icon": "images/skype.png",
+        "title": "Skype",
+        "content": "hlsph3"
+      }
+    ]
+  }
+}

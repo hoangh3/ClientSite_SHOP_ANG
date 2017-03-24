@@ -1,0 +1,27 @@
+{
+  "title": "memories of ...",
+  "friends": [
+  	{"img": "images/slide/friends/1.jpg"},
+  	{"img": "images/slide/friends/2.jpg"},
+    {"img": "images/slide/friends/3.jpg"},
+    {"img": "images/slide/friends/4.jpg"}
+  ],
+  "families": [
+  	{"img": "images/slide/families/1.JPG"},
+  	{"img": "images/slide/families/3.JPG"},
+  	{"img": "images/slide/families/2.jpg"},
+    {"img": "images/slide/families/4.JPG"},
+    {"img": "images/slide/families/5.JPG"}
+  ],
+  "childhood": [
+  	{"img": "images/slide/1.jpg"},
+  	{"img": "images/slide/3.jpg"},
+  	{"img": "images/slide/2.jpg"}
+  ],
+  "hobbies": [
+  	{"img": "images/slide/hobbies/1.png"},
+  	{"img": "images/slide/hobbies/2.jpg"},
+    {"img": "images/slide/hobbies/3.png"},
+    {"img": "images/slide/hobbies/4.jpg"}
+  ]
+}

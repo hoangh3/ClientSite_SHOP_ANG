@@ -1,0 +1,60 @@
+<!-- include header -->
+<div ng-include="'view/headerShop.html'"></div> 
+
+<div class="container" ng-controller="CheckoutController">
+  <section class="col-md-7" id="col-md-7-id">
+    <section>
+      <div class="ship_title">
+        <i class="fa fa-home icon-3x" aria-hidden="true" style="font-size:48px";></i>
+        <h2>Your infomation</h2>
+      </div>
+      <div class="clearfix">
+        <div class="underline"></div>
+        <p>All fields are required except if mentioned optional!</p>
+        <div>
+          <form ng-submit="register()">
+            <div class="title">
+              <p>Title</p>
+              <select>
+                <option value="Mr">Mr.</option>
+                <option value="Ms">Ms.</option>
+                <option value="Mrs">Mrs.</option>
+              </select>
+            </div>
+            <div class="full_name">
+              <p>Your name</p>
+              <input type="text" ng-model="customer.name"/>
+            </div>
+            <div class="email">
+              <p>Email</p>
+              <input type="text" ng-model="customer.email"/>
+            </div>
+            <div class="ship_address">
+              <p>Address</p>
+              <input type="text" ng-model="customer.address"/>
+            </div>
+            <div class="ship_country">
+              <p>Your Country</p>
+              <input type="text" ng-model="customer.country"/>
+            </div>
+            <div class="ship_city">
+              <p>Your City</p>
+              <input type="text" ng-model="customer.city"/>
+            </div>
+            <div class="ship_phone">
+              <p>Contact Phone Number</p>
+              <input type="text" ng-model="customer.phone"/>
+            </div>
+            <div class="checkout">
+              <button class="button-Checkout"><a href="" style="color: #FFF">REGISTER</a></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="space30"></div>
+    </section>
+  </section>
+</div>
+
+<!-- include footer -->
+<div ng-include="'view/footerShop.html'"></div> 

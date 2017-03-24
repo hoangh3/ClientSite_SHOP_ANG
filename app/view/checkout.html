@@ -1,0 +1,66 @@
+<!-- include header -->
+<div ng-include="'view/headerShop.html'"></div>
+
+<div class="container">
+  <section class="col-sm-9 col-md-6 col-lg-6">
+    <section style="margin-right: 100px">
+      <div class="ship_title">
+        <i class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size:48px";></i>
+        <h2>Guest Checkout</h2>
+      </div>
+      <div class="clearfix">
+        <div class="underline"></div>
+        <p>You may check out without creating an account. You will be able to create an account later if you wish.</p>
+        <div ng-controller="CustomerController" >
+          <form name="chechoutForm" ng-submit="createCustomer()">
+            <div class="email">
+              <p>Email</p>
+              <input type="email" name="createdCustomerEmail" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" placeholder="Enter a valid email address" autofocus ng-model="customer.email" />
+            </div>
+            <div class="checkout">
+              <br><button type="submit" class="button-Checkout">CONTINUE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="space30"></div>
+    </section>
+  </section>
+
+  <!-- sign in section -->
+  <section class="col-sm-3 col-md-6 col-lg-6" style="border-left: #5C5C5C solid 1.8px" ng-controller="SignInController">
+    <div style="margin-left: 100px" >
+      <div class="ship_title">
+        <i class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:48px";></i>
+        <h2>Returning Customer</h2>
+      </div>
+      <div class="clearfix">
+        <div class="underline"></div>
+        <p>Please sign in if you previously set up an account. This will speed up the checkout process and save your purchase in your order history.</p>
+        <div>
+          <form name = "loginForm" ng-submit="sign_in()">
+            <input ng-model="session.signin_in_checkout" value="{{session.signin_in_checkout = 1 }}" disabled="disabled"  ng-hide="true" />
+            <div class="email">
+              <p>Email</p>
+              <input type="text" name="customerName" ng-model="session.email"/>
+            </div>
+            <div class="password">
+              <p>Password</p>
+              <input type="password" ng-model="session.password"/>
+            </div>
+            <div class="checkout">
+              <button type="submit" class="button-Checkout" style="float: left" ng-click="registerPage()">SIGN IN</button>
+              <button type="submit" class="button-Checkout" style="float: right"><a href="#/register" style="color: #FFF">REGISTER</a></button>
+              <!-- <span >If you haven't register yet, choose "register now!".</span> -->
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="space30"></div>
+      <!-- <div class="clearfix underline"></div> -->
+    </div>
+  </section>
+</div>
+
+<!-- include footer -->
+<div ng-include="'view/footerShop.html'"></div>

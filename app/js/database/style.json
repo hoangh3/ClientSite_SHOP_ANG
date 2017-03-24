@@ -1,0 +1,33 @@
+{
+  "style1": {
+    "title1": "Louis Vuitton",
+    "content1": [
+      "Intricate designs set with colored stones are worn stacked on the hands.",
+      "Inspired by the Botanical Garden of Palermo discover the earthy hued printed apparel and accessories."
+    ],
+    "img": "/images/shop/style3.jpg",
+    "content2": [
+      "Intricate designs set with colored stones are worn stacked on the hands.",
+      "Inspired by the Botanical Garden of Palermo discover the earthy hued printed apparel and accessories."
+    ],
+    "title2": "Gucci Garden"
+  },
+  "style2": {
+    "box1": {
+      "img" : "images/shop/item_2.jpg",
+      "title": "Online Shop",
+      "content": [
+        "Intricate designs set with colored stones are worn stacked on the hands.",
+        "Inspired by the Botanical Garden of Palermo discover the earthy hued printed apparel and accessories."
+      ]
+    },
+    "box2": {
+      "img" : "images/shop/item_3.jpg",
+      "title": "Online Shop",
+      "content": [
+        "Intricate designs set with colored stones are worn stacked on the hands.",
+        "Inspired by the Botanical Garden of Palermo discover the earthy hued printed apparel and accessories."
+      ]
+    }
+  }
+}

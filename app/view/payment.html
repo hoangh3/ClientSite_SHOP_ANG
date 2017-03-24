@@ -1,0 +1,139 @@
+<!-- include header -->
+<div ng-include="'view/headerShop.html'"></div>
+
+<div class="container">
+
+  <!-- save customer infomation section -->
+  <section class="col-md-7" id="col-md-7-id">
+    <section>
+      <div class="ship_title">
+        <i class="fa fa-home icon-3x" aria-hidden="true" style="font-size:48px";></i>
+        <h2>Shipping Address</h2>
+      </div>
+      <div class="clearfix">
+        <div class="underline"></div>
+        <p>All fields are required except if mentioned optional.</p>
+        <h4>Ship To</h4>
+        <div>
+          <div class="notice-to-customer">
+            <p>You are checking out as:</p>
+            <p>{{currentCustomer.email}}</p>
+          </div>
+          <form name = "messageForm" ng-submit="updateCustomerInfomation()">
+            <div class="title">
+              <p>Title</p>
+              <select>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+              </select>
+            </div>
+            <div class="full_name">
+              <p>Your name</p>
+              <input type="text" required maxlength="80" autofocus ng-model="updateCustomer.name" />
+            </div>
+            <div class="ship_address">
+              <p>Address</p>
+              <input type="text" required ng-model="updateCustomer.address"  />
+            </div>
+            <div class="ship_country">
+              <p>Your Country</p>
+              <input type="text" required ng-model="updateCustomer.country" />
+            </div>
+            <div class="ship_city">
+              <p>Your City</p>
+              <input type="text" required ng-model="updateCustomer.city" />
+            </div>
+            <div class="ship_phone">
+              <p>Contact Phone Number</p>
+              <input type="text" required maxlength="15" ng-model="updateCustomer.phone" />
+            </div>
+            <div class="checkout">
+              <button type="submit" class="button-Checkout">SAVE</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="space30"></div>
+    </section>
+  </section>
+
+  <!-- customer bill section -->
+  <section class="col-md-5" id="col-md-5-id" >
+    <section style="background-color: #FFB296; margin-top: 50px; border-radius: 8px">
+      <div class="ship_title" style="margin-left: 100px">
+        <i class="glyphicon glyphicon-list" aria-hidden="true" style="font-size:48px";></i>
+        <h2>Your Bill</h2>
+      </div>
+      <div class="clearfix">
+        <div>
+          <form name="messageForm">
+            <div class="bill_field">
+              <h4>Your name</h4>
+              <p>{{currentCustomer.name}}</p>
+            </div>
+            <div class="bill_field">
+              <h4>Email</h4>
+              <p>{{currentCustomer.email}}</p>
+            </div>
+            <div class="bill_field">
+              <h4>Address</h4>
+              <p>{{currentCustomer.address}}</p>
+            </div>
+            <div class="bill_field">
+              <h4>Country</h4>
+              <p>{{currentCustomer.country}}</p>
+            </div>
+            <div class="bill_field">
+              <h4>City</h4>
+              <p>{{currentCustomer.city}}</p>
+            </div>
+            <div class="bill_field">
+              <h4>Contact Phone Number</h4>
+              <p>{{currentCustomer.phone}}</p>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div class="order-details">
+            <ul class="order-details-totals">
+              <li>
+                Subtotal
+                <span>{{totalPrice | currency}}</span>
+              </li>
+              <li>
+                Shipping
+                <span>{{0 | currency}}</span>
+              </li>
+              <li>
+                Estimated Total
+                <span class="order-details-totals-total">{{totalPrice | currency}}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bill_field">
+            <h4 style="width: 35%; float: left">Payment by</h4>
+            <span>
+              <select ng-model="payByMoney"  style="width: 55%; float: right; height: 30px; border-radius: 5px" ng-click="currencyExchange()">
+                <option value="Vietnamese Dong">Vietnamese Dong</option>
+                <option value="Dollars">Dollars</option>
+                <option value="Japanese Yen">Japanese Yen</option>
+              </select>
+            </span>
+          </div>
+          <div class="bill_field">
+            <input type="nunber" name="totalMoney" value="{{finalMoney}}" style="width: 100%"><br><br>
+            </div>
+          <div>
+            <button type="submit" name="submit" class="payment_button" ng-click="createBill()">PAYMENT</button>
+          </div>
+        </div>
+      </div>
+      <div class="space30"></div>
+    </section>
+  </section>
+</div>
+
+<!-- include footer -->
+<div ng-include="'view/footerShop.html'"></div>

@@ -1,0 +1,282 @@
+<!-- include header -->
+<div ng-include="'view/headerShop.html'"></div> 
+
+<section>
+  <div class="link-address">
+    <div class="container">
+      
+    </div>
+  </div>
+</section>
+<div class="space50"></div>
+<section>
+  <div class="container">
+    <div class="row"  ng-controller='ProductController'>
+      <!-- shop menu-->
+      <aside class="col-md-3 col-sm-4">
+        <div class="menu-shop">
+          <form ng-submit="search_product_with_params(product)" method="get">
+            <h4><span>Shop by</span></h4>
+            <a ng-click='search_product_with_params()' href="">
+              <h5>New Arrivals</h5>
+            </a>
+            <div class="select-wrap">
+              <h5>Sort by Price</h5>
+              <select name="" id="">
+                <option value="">Price high to low</option>
+                <option value="">Price low to high</option>
+              </select>
+            </div>
+            <h5>Gender</h5>
+            <ul class="cate-menu">
+              <li ng-repeat="sex in sexes">
+                <a ng-click='search_product_with_params({sex_id: sex.id})' href=""> {{sex.gender}} </a>
+                <span class="right radio-button">
+                  <input type="radio" class="" ng-model="product.sex_id" value="{{sex.id}}" />
+                </span>    
+              </li>
+            </ul>
+            <div class="space30"></div>
+            <h5>Categories</h5>
+            <ul class="cate-menu">
+              <li ng-repeat="category in categories">
+                <div class="row">
+                  <div class="col-md-6">
+                  <a ng-click='search_product_with_params({category_id: category.id})' href=""> {{category.name}} </a>
+                  <input type="radio" class="radio_style" ng-model="product.category_id" value="{{category.id}}" />
+                  </div>
+                  <div class="col-md-6">
+                    <a href="" class="btn btn-2">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="space30"></div>
+            <h5>Manufactures</h5>
+            <ul class="cate-menu">
+              <li ng-repeat='producer in producers'>
+                <a ng-click='search_product_with_params({producer_id: producer.id})' href=""> {{producer.name}} </a>
+                <input type="radio" class="radio_style" ng-model="product.producer_id" value="{{producer.id}}" />
+              </li>
+            </ul>
+            <button>Search</button>
+          </form>
+        </div>
+      </aside>
+      <!-- list fashion -->
+      <div class="col-md-9 col-sm-4" style="position: relative">
+        <div class="col-md-12">
+          <div class="top-search">
+            <form>
+              <input type="text" placeholder="Please input name fashion">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="clearfix space30"></div>
+        <!-- <section>
+          <div class="col-md-12">
+            <dir-pagination-controls></dir-pagination-controls>
+          </div>
+          <ul>
+            <li dir-paginate="product in products | itemsPerPage: 6">
+              <div class="col-md-4">
+                <div class="fashion-item">
+                  <img ng-src="http://localhost:3000/{{ product.image }} " class="img-responsive">
+                  <div class="overlay-rmore fa fa-search quickview" ng-click="showTab($event,product.id)"></div>
+                  <div class="fashion-overlay">
+                    <a href="" class="fa fa-shopping-cart" ng-click="addProduct($index)"></a>
+                    <a href="" class="fa fa-heart-o"></a>
+                  </div>
+                </div>   
+                <div class="fashion-info">
+                  <h4> {{product.name}} </h4>
+                  <span class="fashion.price"> {{product.price | currency}} </span>
+                </div>
+                <div style="visibility: hidden">
+                  <div class="md-dialog-container" id="content{{product.id}}">
+                    <md-dialog layout-padding>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-7">
+                            <img ng-src="http://localhost:3000/{{ product.image }} " class="img-responsive">
+                          </div>
+                          <div class="col-md-5">
+                            <h1> {{product.name}} </h1>
+                            <p> {{product.designed}} </p>
+                            <div class="ratings-wrap">
+                              <div class="ratings">
+                                <span class="act fa fa-star"></span>
+                                <span class="act fa fa-star"></span>
+                                <span class="act fa fa-star"></span>
+                                <span class="act fa fa-star"></span>
+                                <span class=" fa fa-star"></span>
+                              </div>
+                              <p>({{product.reviews}} reviews)</p>
+                            </div>
+                            <span> {{product.price | currency}} </span>
+                            <div class="underline"></div>
+                            <div class="purchasing">
+                                <div class="fashion-color">
+                                  <p>Color*</p>
+                                  <a href="" ng-repeat="color in product.color_array_style" class="{{color}}" 
+                                  ng-click="selectColor(color)"></a>
+                                </div>
+                                <div class=" row select-wrap">
+                                  <div class="col-md-7">
+                                    <p>Size*</p>
+                                    <select ng-model="selectSize">
+                                      <option ng-repeat="size in product.size_array_style">{{size}}</option>
+                                    </select>
+                                  </div> 
+                                  <div class="col-md-5">
+                                    <p>Quantity*</p>
+                                    <select ng-model="selectQuantity">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <button ng-click="addProduct($index,selectQuantity,selectSize,selectcolor)">ADD TO SHOPPING</button>
+                                <div>
+                                <p> {{product.order_information}} </p>
+                                </div>
+                                <div class="like-help">
+                                  <ul>
+                                    <li><a href="" class="fa fa-heart-o">Like</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="" class="fa fa-book">May We Help?</a></li>
+                                  </ul>
+                                </div>
+                            </div>
+                            <div class="underline"></div>
+                            <div class="product-details">
+                              <h4>Product Details</h4>
+                              <p> {{product.title}} </p>
+                              <ul>
+                                <li ng-repeat="content in product.content_array_style">{{content}}</li>
+                              </ul>
+                            </div>   
+                          </div>
+                        </div>
+                      </div>
+                    </md-dialog>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="col-md-12">
+            <dir-pagination-controls></dir-pagination-controls>
+          </div>
+        </section> -->
+
+
+        <div class="col-md-4" ng-repeat="product in products" id="product-loader">
+          <div class="fashion-item">
+            <img ng-src="http://localhost:3000/{{ product.image }} " class="img-responsive">
+            <div class="overlay-rmore fa fa-search quickview" ng-click="showTab($event,product.id); checkQuantity = product.quantity <= 0"></div>
+            <div class="fashion-overlay">
+              <a href="" class="fa fa-shopping-cart" ng-click="addProduct($index)"></a>
+              <a href="" class="fa fa-heart-o"></a>
+            </div>
+          </div>   
+          <div class="fashion-info">
+            <h4> {{product.name}} </h4>
+            <span class="fashion.price"> {{product.price | currency}} </span>
+          </div>
+
+          <div style="visibility: hidden">
+            <div class="md-dialog-container" id="content{{product.id}}">
+              <md-dialog layout-padding>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <img ng-src="http://localhost:3000/{{ product.image }} " class="img-responsive">
+                    </div>
+                    <div class="col-md-5">
+                      <h1> {{product.name}} </h1>
+                      <p> {{product.designed}} </p>
+                      <div class="ratings-wrap">
+                        <div class="ratings">
+                          <span class="act fa fa-star"></span>
+                          <span class="act fa fa-star"></span>
+                          <span class="act fa fa-star"></span>
+                          <span class="act fa fa-star"></span>
+                          <span class=" fa fa-star"></span>
+                        </div>
+                        <p>({{product.reviews}} reviews)</p>
+                      </div>
+                      <span> {{product.price | currency}} </span>
+                      <div ng-show="checkQuantity" style="background-color: red; color: black; font-weight: bold; width: 40%; padding: 0.1px; border-radius: 7px"><h4>This product is out of.</h4></div> 
+                      <div class="underline"></div>
+                      <div class="purchasing">
+                          <div class="fashion-color">
+                            <p>Color*</p>
+                            <a href="" ng-repeat="color in product.color_array_style" class="{{color}}" 
+                            ng-click="selectColor(color)"></a>
+                          </div>
+                          <div class=" row select-wrap">
+                            <div class="col-md-7">
+                              <p>Size*</p>
+                              <select ng-model="selectSize">
+                                <option ng-repeat="size in product.size_array_style">{{size}}</option>
+                              </select>
+                            </div> 
+                            <div class="col-md-5">
+                              <p>Quantity*</p>
+                              <select ng-model="selectQuantity">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div><p>{{product.quantity}}</p></div>
+                          
+                          <button ng-hide="checkQuantity" ng-click="addProduct($index,selectQuantity,selectSize,selectcolor, product.quantity)">ADD TO CART</button>
+                          <div>
+                          <p> {{product.order_information}} </p>
+                          </div>
+                          <div class="like-help">
+                            <ul>
+                              <li><a href="" class="fa fa-heart-o">Like</a></li>
+                              <li class="divider"></li>
+                              <li><a href="" class="fa fa-book">May We Help?</a></li>
+                            </ul>
+                          </div>
+                      </div>
+                      <div class="underline"></div>
+                      <div class="product-details">
+                        <h4>Product Details</h4>
+                        <p> {{product.title}} </p>
+                        <ul>
+                          <li ng-repeat="content in product.content_array_style">{{content}}</li>
+                        </ul>
+                      </div>   
+                    </div>
+                  </div>
+                </div>
+              </md-dialog>
+            </div>
+          </div>
+        </div>
+        <pagination total-items="totalItems" ng-click="getPage()" ng-model="currentPage"  
+                max-size="5" boundary-links="true"  
+                items-per-page="numPerPage" class="pagination-sm" style="position: absolute; bottom: -55px;
+                right: 25px;">  
+        </pagination> 
+      </div>  
+    </div>      
+  </div>
+</section>
+<div class="space50"></div>
+
+<!-- include footer -->
+<div ng-include="'view/footerShop.html'"></div> 

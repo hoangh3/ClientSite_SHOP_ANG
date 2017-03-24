@@ -1,0 +1,83 @@
+<!-- include header -->
+<div ng-include="'view/headerShop.html'"></div> 
+
+<div class="space30"></div>
+<div class="container shoppingBag" ng-controller="ProductController">
+  <div class="row">
+    <div class="item-selected-wrap">
+      <div class="container">
+        <h4>YOUR SELECTIONS</h4>
+        <p>{{product_selected}}</p>
+      </div>
+
+      <div class=" container item-selected" ng-repeat="product in products_selected">
+        <div class="underline"></div>
+        <div class="item-selected-img">
+          <img ng-src="http://localhost:3000/{{product.image}} " class="img-responsive">
+        </div>
+        <div class="item-selected-info">
+          <div class="item-selected-info-left">
+            <h4> {{product.name}} </h4>
+            <div class="">
+              <p>Color: {{product.color}}</p>
+              <p>Size:  {{product.size}}</p>
+              <p>Price: {{product.price | currency}} </p>
+              <p>Quantity*</p>
+              <input type="number" ng-model="product.quantity" ng-change="changeQuantity($index)" min="1" max="{{product.itsQuantity}}"/><br><br>
+              <p>Your selection is available for immediate purchase online. You will be notified when your item is shipped</p>
+            </div>
+            <div class="like-help">
+              <ul>
+                <li><a href="" class="fa fa-edit">Edit</a></li>
+                <li class="divider"></li>
+                <li><a href="" class="fa fa-remove" ng-click="removeProduct($index)">Remove</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="item-selected-info-right">
+            <h4>Total</h4>
+            <div class="space30"></div>
+            <div>
+              <p>Quantity: {{product.quantity}} </p>
+              <span> {{product.subPrice | currency}} </span>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- total and checkout -->
+  <div class="row col-md-5">
+    <div class="underline"></div>
+    <div class="order-details">
+      <div class="order-details-title">
+        <h4>Order Summary</h4>
+      </div>
+      <ul class="order-details-totals">
+        <li>
+          Subtotal
+          <span>{{totalPrice | currency}}</span>
+        </li>
+        <li>
+          Shipping
+          <span>{{0 | currency}}</span>
+        </li>
+        <li>
+          Estimated Total
+          <span class="order-details-totals-total">{{totalPrice | currency}}</span>
+        </li>
+      </ul>
+      <div class="underline"></div>
+      <div class="checkout" ">
+        <a ng-attr-href="{{current_user ? '#/payment' : '#/checkout'}}">
+           CHECKOUT
+        </a>
+        <!-- <a href="#/checkout">CHECKOUT</a> -->
+      </div>
+    </div> 
+  </div>
+  <div class="space30"></div>
+</div>
+<div class="space30"></div>
+<!-- include footer -->
+<div ng-include="'view/footerShop.html'"></div> 

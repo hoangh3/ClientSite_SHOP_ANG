@@ -1,0 +1,23 @@
+{
+  "name": "Final",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "bootstrap": "^3.3.5",
+    "angular-messages": "^1.5.7",
+    "angular-aria": "^1.5.7",
+    "angular-material": "^1.1.0-rc.5",
+    "angular-cookies": "^1.5.7",
+    "jquery": "^2.2.4",
+    "Font-Awesome": "^4.6.3",
+    "angular-utils-pagination": "^0.11.0",
+    "angular-resource": "^1.5.8"
+  }
+}

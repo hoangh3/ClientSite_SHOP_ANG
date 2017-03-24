@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> -->
+  <!-- add style -->
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/Font-Awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- add angular -->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+  <!-- add js -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- <script src="bower_components/jquery/dist/jquery.js"></script> -->
+<!--   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+  <!-- add angularjs -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/aboutmeController.js"></script>
+  <script src="js/services/aboutService.js"></script>
+  <script src="js/directives/aboutDirective.js"></script>
+  <script src="js/controllers/shopController.js"></script>
+  <script src="js/services/shopService.js"></script>
+
+  <script>
+    $( document ).ready(function() {
+        $("#loader").css("display", "none");
+    });
+
+    $( window ).load(function() {
+        $("#loader").css("display", "none");
+    });
+    $( "#product-loader").load(function() {
+        $("#loader").css("display", "none");
+    });
+    $( "#product-loader").ready(function() {
+        $("#loader").css("display", "none");
+    });
+  </script>
+  <!-- <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css"> -->
+</head>
+<body ng-app='app'>
+  <div id="loader"></div>
+  <div class="body">
+    <div ng-view></div>
+  </div>
+</body>
+</html>
